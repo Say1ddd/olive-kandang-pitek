@@ -46,7 +46,7 @@ const HumidityChart = () => {
                     labels: timestamps,
                     datasets: [{
                         label: 'Humidity',
-                        backgroundColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgb(255, 255, 255)',
                         borderColor: 'rgb(59, 130, 246)',
                         data: humidities,
                     }]
@@ -59,6 +59,24 @@ const HumidityChart = () => {
                     },
                     responsive: true,
                     aspectRatio: 2,
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)',
+                            },
+                            ticks: {
+                                color: 'white',
+                            },
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)',
+                            },
+                            ticks: {
+                                color: 'white',
+                            },
+                        },
+                    },
                 }
             });
 
@@ -67,9 +85,12 @@ const HumidityChart = () => {
     }, [timestamps, humidities]);
 
     return (
-        <div className="relative shadow-sm p-5 border-slate-300 hover:border-blue-500 duration-300 border-solid border-2 flex items-center">
+        <div className="relative shadow-sm py-2 px-1 border-slate-300 rounded-xl lg:rounded-b-xl lg:rounded-t-none hover:bg-black/20 hover:border-blue-500 duration-300 border-2 flex items-center">
             <div className="flex-grow" style={{ display: 'inline-block' }}>
-                <p className='font-bold text-3xl'>Humidity Chart</p>
+            <div className='flex-cols text-center'>
+            <div className='font-bold dark:text-white text-xl sm:text-2xl md:text-2xl lg:text-3xl'>Temperature Chart</div>
+            <div className='text-md dark:text-gray-500 text-sm sm:text-xs md:text-sm lg:text-xl'>(showing most recent humidity records)</div>
+            </div>
                 <canvas id="humidity-chart" style={{ width: '100%', height: '100%' }}></canvas>
             </div>
         </div>
