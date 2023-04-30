@@ -89,7 +89,7 @@ const TemperatureChart = () => {
             <div className="flex-grow" style={{ display: 'inline-block' }}>
                 <div className='flex-cols text-center'>
                 <div className='font-bold dark:text-white text-xl sm:text-2xl md:text-2xl lg:text-3xl'>Temperature Chart</div>
-            <div className='text-md dark:text-gray-500 text-sm sm:text-xs md:text-sm lg:text-xl'>(showing most recent humidity records)</div>
+            <div className='text-md dark:text-gray-500 text-sm sm:text-xs md:text-sm lg:text-xl'>(showing most recent temperature records)</div>
             </div>
                 <canvas id="temperature-chart" style={{ width: '100%', height: '100%' }}></canvas>
             </div>
