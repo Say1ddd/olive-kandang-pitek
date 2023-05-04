@@ -33,9 +33,9 @@ const TemperatureCard = () => {
 
     return (
         <div className="font-bold">
-            <span className='text-7xl'>{temp !== null ? `${temp}°C` : 'Loading...'}</span>
+            <span className=' text-blue-400 text-3xl md:text-5xl lg:text-7xl'>{temp !== null ? `${temp}°C` : 'Loading...'}</span>
             <div>
-                <span className='text-xl'>{timestamp !== null ? `${timestamp}` : ' - '}</span>
+                <span className='sm:text-md md:text-lg lg:text-xl text-blue-100'>{timestamp !== null ? `${timestamp}` : ' - '}</span>
             </div>
         </div>
     );
