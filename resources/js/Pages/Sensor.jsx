@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Layout from '@/Layouts/Layout';
 import { Head } from '@inertiajs/react';
 import TemperatureCard from '@/Components/TemperatureCard';
@@ -7,13 +8,25 @@ import TemperatureSVG from '@/Components/svg/TemperatureSVG';
 import HumiditySVG from '@/Components/svg/HumiditySVG';
 import HumidityChart from '@/Components/HumidityChart';
 
-export default function Dashboard({ auth }) {
+export default function Sensor({ auth }) {
+    const handleTerminate = () => {
+    };
+
     return (
         <Layout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
+            header={
+                <div className="flex justify-between items-center">
+                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">Sensor</h2>
+                    <div className="flex items-center space-x-4">
+                        <button onClick={handleTerminate} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            Terminate
+                        </button>
+                    </div>
+                </div>
+            }
         >
-            <Head title="Dashboard" />
+            <Head title="Sensor" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

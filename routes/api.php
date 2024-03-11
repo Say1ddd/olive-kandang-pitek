@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SensorController;
+use App\Http\Controllers\ApiController;
 
 
 /*
@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/sensors', [SensorController::class, 'index']);
-Route::post('/sensors', [SensorController::class, 'store']);
+Route::get('/sensors', [ApiController::class, 'index']);
+Route::post('/sensors', [ApiController::class, 'store']);

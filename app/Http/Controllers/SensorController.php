@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Sensor;
 use Illuminate\Http\Request;
 
@@ -12,16 +13,15 @@ class SensorController extends Controller
      */
     public function index()
     {
-        // Fetch the latest record from the sensors table
-        $newSensor = Sensor::latest()->first();
+        $temperatureData = Sensor::select('temp', 'recorded_at')->latest()->first();
+        $humidityData = Sensor::select('humid', 'recorded_at')->latest()->first();
     
-        // Extract temperature and humidity values
-        $temperature = $newSensor->temp ?? null;
-        $humidity = $newSensor->humid ?? null;
-    
-        // Return the temperature and humidity values
-        return response()->json(['temperature' => $temperature, 'humidity' => $humidity]);
+        return Inertia::render('Sensor', [
+            'temperatureData' => $temperatureData,
+            'humidityData' => $humidityData,
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -36,35 +36,13 @@ class SensorController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request data
-        $request->validate([
-            'temp' => 'required',
-            'humid' => 'required',
-        ]);
-    
-        // Create a new sensor record
-        $sensor = new Sensor();
-        $sensor->temp = $request->temp;
-        $sensor->humid = $request->humid;
-        $sensor->save();
-    
-        if($sensor->save()) {
-            return response()->json([
-                'message' => 'sensor saved successfully'
-            ], 200);
-        }else {
-            return response()->json([
-                'message' => 'Failed to save sensor'
-            ], 500);
-        }
+        //
     }
-    
-
 
     /**
      * Display the specified resource.
      */
-    public function show(Sensor $sensor)
+    public function show(string $id)
     {
         //
     }
@@ -72,7 +50,7 @@ class SensorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sensor $sensor)
+    public function edit(string $id)
     {
         //
     }
@@ -80,7 +58,7 @@ class SensorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sensor $sensor)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -88,7 +66,7 @@ class SensorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sensor $sensor)
+    public function destroy(string $id)
     {
         //
     }
