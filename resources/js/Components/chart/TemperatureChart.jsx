@@ -85,7 +85,7 @@ const TemperatureChart = () => {
     }, [timestamps, temperatures]);
 
     return (
-        <div className="relative p-5 hover:bg-black/20 py-2 px-1 rounded-xl lg:rounded-b-xl lg:rounded-t-none shadow-sm hover:border-blue-500 duration-300 border-2 flex items-center">
+        <div className="relative p-5 hover:bg-black/20 py-2 px-1 rounded-xl lg:rounded-b-xl hover:border-t-2 lg:rounded-t-none md:border-t-0 shadow-sm hover:border-blue-500 duration-200 border-2 flex items-center">
             <div className="flex-grow" style={{ display: 'inline-block' }}>
                 <div className='flex-cols text-center'>
                 <div className='font-bold dark:text-white text-xl sm:text-2xl md:text-2xl lg:text-3xl'>Temperature Chart</div>

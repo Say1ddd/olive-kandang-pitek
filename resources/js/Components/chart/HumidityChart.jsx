@@ -85,7 +85,7 @@ const HumidityChart = () => {
     }, [timestamps, humidities]);
 
     return (
-        <div className="relative shadow-sm py-2 px-1 border-slate-300 rounded-xl lg:rounded-b-xl lg:rounded-t-none hover:bg-black/20 hover:border-blue-500 duration-300 border-2 flex items-center">
+        <div className="relative shadow-sm py-2 px-1 border-slate-300 rounded-xl md:border-t-0 lg:rounded-b-xl lg:rounded-t-none hover:bg-black/20 hover:border-blue-500 hover:border-t-2 duration-200 border-2 flex items-center">
             <div className="flex-grow" style={{ display: 'inline-block' }}>
             <div className='flex-cols text-center'>
             <div className='font-bold dark:text-white text-xl sm:text-2xl md:text-2xl lg:text-3xl'>Temperature Chart</div>
